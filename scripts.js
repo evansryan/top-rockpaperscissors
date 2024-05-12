@@ -33,13 +33,33 @@ Step 4
 5. Add 1 to the winner's score
     Whicherver player wins, 1 should be added to either humanScore or computerScore
 
+Step 5
+-- Write the logic to play the entire game -- 
+1. Create a new function named playGame
+2. The game should last five rounds and then a winner should be declared after all rounds have been played.
+    Create a loop that will let the game run for five rounds max. Once five rounds has been hit, declare a winner based on humanScore vs computerScore
+
 */
+
 let humanScore = 0;
 let computerScore = 0;
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+playGame();
+
+function playGame() {
+    for(let i = 1; i <= 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log("Human Choice: " + humanSelection + " vs. " + "Computer Choice: " + computerSelection);
+        console.log("Score is - Human: " + humanScore + " Computer: " + computerScore);
+    }
+    if (humanScore > computerScore) {
+        console.log("You win! Final Score - Human: " + humanScore + " Computer: " + computerScore);
+    } else {
+        console.log("You lose! Final Score - Human: " + humanScore + " Computer: " + computerScore);
+    }
+}
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -76,15 +96,12 @@ function getComputerChoice() {
     } else {
         computerChoice = "scissors";
     }
-
-    console.log("Computer Choice = " + computerChoice);
     return computerChoice;
 }
 
 function getHumanChoice() {
     let humanChoice = prompt("Please enter rock, paper, or scissors.",).toLowerCase();
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-        console.log("Human Choice = " + humanChoice);
         return humanChoice;
     } else {
         return getHumanChoice();
