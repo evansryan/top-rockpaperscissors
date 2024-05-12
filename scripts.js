@@ -56,6 +56,8 @@ function playGame() {
     }
     if (humanScore > computerScore) {
         console.log("You win! Final Score - Human: " + humanScore + " Computer: " + computerScore);
+    } else if (humanScore === computerScore) {
+        console.log("Tie! Final Score - Human: " + humanScore + " Computer: " + computerScore);
     } else {
         console.log("You lose! Final Score - Human: " + humanScore + " Computer: " + computerScore);
     }
