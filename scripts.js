@@ -20,14 +20,55 @@ Step 3
 2. Create a variable to keep track of the computer score
 3. Both scores should be 0 to start
 
+Step 4
+-- Write the logic to play a single round -- 
+1. Create a new function named playRound
+2. Define two parameters for playRound(), humanChoice and computerChoice
+3. Make humanSelection case-insensitive
+    This was already done as part of step 2
+4. Declare a winner in console.log
+    Rock beats Scissors
+    Paper beats Rock
+    Scissors beats Paper
+5. Add 1 to the winner's score
+    Whicherver player wins, 1 should be added to either humanScore or computerScore
+
 */
 let humanScore = 0;
 let computerScore = 0;
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
+playRound(humanSelection, computerSelection);
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log("You win! Rock beats scissors");
+        humanScore++;
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        console.log("You win! Scisscors beats paper!");
+        humanScore++;
+    } else if (humanChoice === "paper" && computerChoice === "rock") {
+        console.log("You win! Paper beats rock!");
+        humanScore++;
+    }
+    if (computerChoice === "rock" && humanChoice === "scissors") {
+        console.log("You lose. Rock beats scissors. :(");
+        computerScore++;
+    } else if (computerChoice === "scissors" && humanChoice === "paper") {
+        console.log("You lose. Scissors beats paper. :(");
+        computerScore++;
+    } else if (computerChoice === "paper" && humanChoice === "rock") {
+        console.log("You lose. Paper beats rock. :(");
+        computerScore++
+    }
+    if (humanChoice === computerChoice) {
+        console.log("Tie! Go again.");
+    }
+}
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
-    console.log(computerChoice);
     if (computerChoice === 1) {
         computerChoice = "rock";
     } else if (computerChoice === 2) {
@@ -49,6 +90,3 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
-
-getComputerChoice();
-getHumanChoice();
