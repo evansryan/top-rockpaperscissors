@@ -56,7 +56,7 @@ let roundDisplay = "";
 
 const rockBtn = document.querySelector("#rockBtn");
 rockBtn.addEventListener("click", () => {
-  playRound("rock", getComputerChoice());
+  playRound("rock");
 });
 
 const paperBtn = document.querySelector("#paperBtn");
@@ -66,7 +66,7 @@ paperBtn.addEventListener("click", () => {
 
 const scissorsBtn = document.querySelector("#scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
-  playRound("scissors", getComputerChoice());
+  playRound("scissors");
 });
 
 const playAgainBtn = document.querySelector("#resetBtn");
